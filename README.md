@@ -52,7 +52,7 @@ This function can be used to get the raw CCT data for the test, and is as follow
 
     Steel_CCT_Calculator(comp,G,rates)
 
-An example of this would be:
+Example code:
 
     comp = {'C':0.1,'Si':0.2,'Mn':0.3,'Ni':0.4,'Cr':0.5,'Mo':0.6}
     G = 10
@@ -62,13 +62,13 @@ An example of this would be:
     
 ### Function 2: CCT Plotter
 
-This function can be used to plot the raw data as a CCT curve, and is as follows:
+This function can be used to plot the raw data as a CCT curve (as shown in Fig.1). The function is as follows:
 
     CCT_Plotter(Ts,comp,rates)
     
 where **Ts** is the direct output taken from the function 'Steel_CCT_Calculator'.
 
-An example of this would be:
+Example input:
     
     comp = {'C':0.1,'Si':0.2,'Mn':0.3,'Ni':0.4,'Cr':0.5,'Mo':0.6}
     G = 10
@@ -77,16 +77,29 @@ An example of this would be:
     Ts = Steel_CCT_Calculator(comp,G,rates)
     
     CCT_Plotter(Ts,comp,rates)
+    
+Example output:
+
+<figure>
+  <img
+  src="example figures/CCT_Plotter_EXAMPLE.png"
+  alt="."
+  width="50%" 
+  height="50%">
+  <figcaption>Fig. 1 An example output when using the 'CCT_Plotter' function. Constituent nomenclature is as follows: f - ferrite, p - pearlite, b - bainite, m - martensite.</figcaption>
+</figure>
+
+&nbsp;
    
 ### Function 3: CCT Fractions
 
-This function can be used to output the final constituent fractions from the modelled CCT curves, and is used as follows:
+This function can be used to output the final constituent fractions, X, from the modelled CCT curves (as shown in Fig. 2) and is used as follows:
 
     CCT_Fractions(Ts,rates)
     
 where **Ts** is the direct output from function 'Steel_CCT_Calculator'.
 
-An example of this would be:
+Example input:
 
     comp = {'C':0.1,'Si':0.2,'Mn':0.3,'Ni':0.4,'Cr':0.5,'Mo':0.6}
     G = 10
@@ -95,3 +108,16 @@ An example of this would be:
     Ts = Steel_CCT_Calculator(comp,G,rates)
     
     CCT_Fractions(Ts,rates)
+    
+Example output:
+
+<figure>
+  <img
+  src="example figures/CCT_Fractions_EXAMPLE.png"
+  alt="."
+  width="50%" 
+  height="50%">
+  <figcaption>Fig. 2 An example output when using the 'CCT_Fractions' function. Output are the final fractions, X, for each constituent. Constituent nomenclature is as follows: f - ferrite, p - pearlite, b - bainite, m - martensite, a - austenite.</figcaption>
+</figure>
+
+&nbsp;
