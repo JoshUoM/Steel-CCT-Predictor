@@ -44,7 +44,13 @@ for cooling rates 0.1, 1, 10, and 100°C/s.
 
 ## 2. Running the Code
 
-The code can be run using the command **CCT_Calculator(comp,G,rates)** - where inputs are defined as discussed.
+The model can be run using a variety of functions. These are 'CCT_Calculator', for predicting the CCT curves, 'CCT_Plotter', for plotting the CCT curves from the first function, and 'CCT_Fractions', for calculting the final constituent fractions at each modelled cooling rate.
+
+### Function 1: CCT Calculator
+
+This function can be used to get the raw CCT data for the test, and is as follows:
+
+    CCT_Calculator(comp,G,rates)
 
 An example of this would be:
 
@@ -53,3 +59,39 @@ An example of this would be:
     rates = [0.1, 1, 10, 100]
     
     CCT_Calculator(comp,G,rates)
+    
+### Function 2: CCT Plotter
+
+This function can be used to plot the raw data as a CCT curve, and is as follows:
+
+    CCT_Plotter(Ts,comp,rates)
+    
+where **Ts** is the direct output taken from the function 'CCT_Calculator'.
+
+An example of this would be:
+    
+    comp = {'C':0.1,'Si':0.2,'Mn':0.3,'Ni':0.4,'Cr':0.5,'Mo':0.6}
+    G = 10
+    rates = [0.1, 1, 10, 100]
+    
+    Ts = CCT_Calculator(comp,G,rates)
+    
+    CCT_Plotter(Ts,comp,rates)
+   
+### Function 3: CCT Fractions
+
+This function can be used to output the final constituent fractions from the modelled CCT curves, and is used as follows:
+
+    CCT_Fractions(Ts,rates)
+    
+where **Ts** is the direct output from function 'CCT_Calculator'.
+
+An example of this would be:
+
+    comp = {'C':0.1,'Si':0.2,'Mn':0.3,'Ni':0.4,'Cr':0.5,'Mo':0.6}
+    G = 10
+    rates = [0.1, 1, 10, 100]
+    
+    Ts = CCT_Calculator(comp,G,rates)
+    
+    CCT_Fractions(Ts,rates)
