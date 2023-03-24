@@ -1,3 +1,17 @@
+# import packages
+import numpy as np
+import math
+from scipy import integrate
+from scipy.integrate import quad
+import matplotlib.pyplot as plt
+import pandas as pd
+from matplotlib.lines import Line2D
+import matplotlib.patches as mpatches
+import warnings
+%matplotlib inline
+warnings.filterwarnings("ignore", category=RuntimeWarning) 
+warnings.filterwarnings("ignore", category=UserWarning) 
+
 # define sub-functions to be used in primary functions
 def Ae3_Calc(comp):
     required_elm = ['C','Si','Mn','Ni','Cr']
