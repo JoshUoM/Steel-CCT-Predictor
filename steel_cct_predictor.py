@@ -1,11 +1,4 @@
-# define functions
-def progressBar(current, total, barLength = 20):
-    percent = float(current) * 100 / total
-    arrow   = '-' * int(percent/100 * barLength - 1) + '>'
-    spaces  = ' ' * (barLength - len(arrow))
-    print('Percentage Completion: [%s%s] %d %%' % (arrow, spaces, percent), end='\r')
-    return
-
+# define sub-functions to be used in primary functions
 def Ae3_Calc(comp):
     required_elm = ['C','Si','Mn','Ni','Cr']
     for e in required_elm:
@@ -121,7 +114,9 @@ def roundup(x):
 def SX_eq(x):
     return (1/(x**(0.4*(1-x))*(1-x)**(0.4*x)))
 
-def CCT_Plotter(Ts,comp,alloy,G,rates):
+# primary functions to be run by users
+
+def CCT_Plotter(Ts,comp,rates):
     colors = {'f':'steelblue','p':'mediumorchid','b':'chocolate','bu':'sandybrown','bl':'chocolate','m':'mediumseagreen'}
     
     plt.figure(figsize=(12,8))
@@ -179,7 +174,7 @@ def CCT_Plotter(Ts,comp,alloy,G,rates):
     plt.tick_params(axis='y', labelsize=16)
     return
 
-def CCT_fractions(Ts,rates):
+def CCT_Fractions(Ts,rates):
     df = pd.DataFrame({'Rate':rates})
     for phase in ['f','p','bu','bl','m']:
         X = []
@@ -208,7 +203,7 @@ def Steel_CCT_Calculator(comp,G,rates):
         SX[round(X,2)] = quad(SX_eq, 0, round(X,2))[0]
 
     Ae3i, Ae1i, PC = Ae3_Calc(comp), Ae1_Calc(comp), PC_Calc(comp)
-    Ts, dT, i, Tfinish = {}, 1, 1, 0
+    Ts, dT, Tfinish = {}, 1, 0
 
     for r in rates:
         
@@ -226,8 +221,6 @@ def Steel_CCT_Calculator(comp,G,rates):
 
         while Xa > 0:
             Xa_current = Xa
-
-            progressBar(i,len(rates)*99)
 
             temp = np.linspace(Ae3i,0,(Ae3i+1)*int(dT**(-1)))
 
@@ -262,7 +255,6 @@ def Steel_CCT_Calculator(comp,G,rates):
                         Xf += 0.01
                         Xa -= 0.01
                         XaU, XaL = Xa, Xa
-                        i += 1
 
                 # PEARLITE:
                 if T <= Ae1i and Xb == 0.01 and Xm == 0.01 and Xa > 0:
@@ -277,7 +269,6 @@ def Steel_CCT_Calculator(comp,G,rates):
 
                         Xp += 0.01
                         Xa -= 0.01
-                        i += 1
 
                 # BAINITE:
                 if T <= Bs and T < To and Xm == 0.01 and Xa > 0: 
@@ -308,7 +299,6 @@ def Steel_CCT_Calculator(comp,G,rates):
 
                         Xb += 0.01
                         Xa -= 0.01
-                        i += 1
                         
                 # MARTENSITE:   
                 if T <= Ms:
@@ -322,7 +312,6 @@ def Steel_CCT_Calculator(comp,G,rates):
 
                         Xm += 0.01
                         Xa -= 0.01
-                        i += 1
 
                     elif Xm != 0.01:
 
@@ -335,7 +324,6 @@ def Steel_CCT_Calculator(comp,G,rates):
 
                             Xm += 0.01
                             Xa -= 0.01
-                            i += 1
 
                 if T <= Tfinish and Xa > 0:
                     Xa = 0
