@@ -44,13 +44,13 @@ for cooling rates 0.1, 1, 10, and 100°C/s.
 
 ## 2. Running the Code
 
-The model can be run using a variety of functions. These are 'CCT_Calculator', for predicting the CCT curves, 'CCT_Plotter', for plotting the CCT curves from the first function, and 'CCT_Fractions', for calculting the final constituent fractions at each modelled cooling rate.
+The model can be run using a variety of functions. These are 'Steel_CCT_Calculator', for predicting the CCT curves, 'CCT_Plotter', for plotting the CCT curves from the first function, and 'CCT_Fractions', for calculting the final constituent fractions at each modelled cooling rate.
 
 ### Function 1: CCT Calculator
 
 This function can be used to get the raw CCT data for the test, and is as follows:
 
-    CCT_Calculator(comp,G,rates)
+    Steel_CCT_Calculator(comp,G,rates)
 
 An example of this would be:
 
@@ -58,7 +58,7 @@ An example of this would be:
     G = 10
     rates = [0.1, 1, 10, 100]
     
-    CCT_Calculator(comp,G,rates)
+    Steel_CCT_Calculator(comp,G,rates)
     
 ### Function 2: CCT Plotter
 
@@ -66,7 +66,7 @@ This function can be used to plot the raw data as a CCT curve, and is as follows
 
     CCT_Plotter(Ts,comp,rates)
     
-where **Ts** is the direct output taken from the function 'CCT_Calculator'.
+where **Ts** is the direct output taken from the function 'Steel_CCT_Calculator'.
 
 An example of this would be:
     
@@ -74,7 +74,7 @@ An example of this would be:
     G = 10
     rates = [0.1, 1, 10, 100]
     
-    Ts = CCT_Calculator(comp,G,rates)
+    Ts = Steel_CCT_Calculator(comp,G,rates)
     
     CCT_Plotter(Ts,comp,rates)
    
@@ -84,7 +84,7 @@ This function can be used to output the final constituent fractions from the mod
 
     CCT_Fractions(Ts,rates)
     
-where **Ts** is the direct output from function 'CCT_Calculator'.
+where **Ts** is the direct output from function 'Steel_CCT_Calculator'.
 
 An example of this would be:
 
@@ -92,6 +92,6 @@ An example of this would be:
     G = 10
     rates = [0.1, 1, 10, 100]
     
-    Ts = CCT_Calculator(comp,G,rates)
+    Ts = Steel_CCT_Calculator(comp,G,rates)
     
     CCT_Fractions(Ts,rates)
