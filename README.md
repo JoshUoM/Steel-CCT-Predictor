@@ -82,11 +82,11 @@ Example output:
 
 <figure>
   <img
-  src="example figures/CCT_Plotter_EXAMPLE.png"
+  src="example figures/CCT_Plotter_EXAMPLE.PNG"
   alt="."
-  width="50%" 
-  height="50%">
-  <figcaption>Fig. 1 An example output when using the 'CCT_Plotter' function. Constituent nomenclature is as follows: f - ferrite, p - pearlite, b - bainite, m - martensite.</figcaption>
+  width="65%" 
+  height="65%">
+  <figcaption>Fig. 1 An example output when using the 'CCT_Plotter' function. Each dot represents a percentage of constituent transformed. Constituent nomenclature is as follows: f - ferrite, p - pearlite, bu - upper bainite, bl - lower bainite, m - martensite.</figcaption>
 </figure>
 
 &nbsp;
@@ -113,11 +113,11 @@ Example output:
 
 <figure>
   <img
-  src="example figures/CCT_Fractions_EXAMPLE.png"
+  src="example figures/CCT_Fractions_EXAMPLE.PNG"
   alt="."
-  width="50%" 
-  height="50%">
-  <figcaption>Fig. 2 An example output when using the 'CCT_Fractions' function. Output are the final fractions, X, for each constituent. Constituent nomenclature is as follows: f - ferrite, p - pearlite, b - bainite, m - martensite, a - austenite.</figcaption>
+  width="30%" 
+  height="30%">
+  <figcaption>Fig. 2 An example output when using the 'CCT_Fractions' function. Output are the final fractions, X, for each constituent. Constituent nomenclature is as follows: f - ferrite, p - pearlite, b - bainite, bu - upper bainite, bl - lower bainite, m - martensite, a - austenite.</figcaption>
 </figure>
 
 &nbsp;
