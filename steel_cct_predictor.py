@@ -8,7 +8,6 @@ import pandas as pd
 from matplotlib.lines import Line2D
 import matplotlib.patches as mpatches
 import warnings
-%matplotlib inline
 warnings.filterwarnings("ignore", category=RuntimeWarning) 
 warnings.filterwarnings("ignore", category=UserWarning) 
 
