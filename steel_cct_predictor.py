@@ -243,6 +243,7 @@ def Steel_CCT_Calculator(comp,G,rates):
                 Bs, BC = Bs_Calc(compi), BC_Calc(compi) 
             Ms = Ms_Calc(compi)
             To = T0_Calc(compi)
+            Acm = Acm_Calc(compi)
 
             rf, rp, rb = [], [], []
 
@@ -252,7 +253,7 @@ def Steel_CCT_Calculator(comp,G,rates):
                     break
 
                 # FERRITE:
-                if T <= Ae3 and Xp == 0.01 and Xb == 0.01 and Xm == 0.01 and Xf <= maxf(comp,T,sf) and Xa > 0:
+                if T <= Ae3 and T > Acm and Xp == 0.01 and Xb == 0.01 and Xm == 0.01 and Xf <= maxf(comp,T,sf) and Xa > 0:
 
                     tF = (FC/((2**(0.41*G)*((Ae3-T)**3)*np.exp(-27500/(1.987*(T+273.15))))))*SX[round(Xf,2)]
                     rf.append(dt/tF)
@@ -275,7 +276,7 @@ def Steel_CCT_Calculator(comp,G,rates):
                     tP = (PC/((2**(0.32*G)*((Ae1i-T)**3)*np.exp(-27500/(1.987*(T+273.15))))))*SX[round(Xp,2)]
                     rp.append(dt/tP)
 
-                    if sum(rp) >= 1.00 and T <= latest_trans and T <= min(Acm_Calc(compi),Ae3_Calc(compi)):
+                    if sum(rp) >= 1.00 and T <= latest_trans and T <= min(Acm,Ae3_Calc(compi)):
 
                         Ts[r]['p'].append(round(T,1))
                         latest_trans = T
